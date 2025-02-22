@@ -71,7 +71,7 @@ nav ul li a:hover::after{
 /* -----------about---------- */
 #about{
     padding: 80px 0;
-    color: #ff004f;
+    color: #f8ffff;
 }
 .row{
     display: flex;
