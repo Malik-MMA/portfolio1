@@ -28,7 +28,7 @@
             <div class="header-text">
                 <p>SLTC Student</p>
                 <h1>Hi, I'm <span>Malik Manas</span><br> From Sri Lanka</h1>
-                <img src="PORTFOLIO/my bg.jpg" alt="Malik">
+                <img src="PORTFOLIO/my bg.jpg" alt="Background image of Malik">
             </div>
         </div>
     </div>
@@ -51,8 +51,8 @@
                     </p>
 
                     <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                        <p class="tab-links active-link" onclick="opentab('skills', event)">Skills</p>
+                        <p class="tab-links" onclick="opentab('education', event)">Education</p>
                     </div>
 
                     <div class="tab-contents active-tab" id="skills">
@@ -67,9 +67,8 @@
                         <ul>
                             <li><span>GCE Ordinary Level</span><br>1A, 1B, 7C</li>
                             <li><span>GCE Advanced Level</span><br>2C2S</li>
-                            <li><span>Degree</span><br>BSc(Hons) in Data Science
-                            <li><span>Diploma</span><br>ISO 27001:2022 - Information Security Management System (ISMS)
-                            </li>
+                            <li><span>Degree</span><br>BSc(Hons) in Data Science</li>
+                            <li><span>Diploma</span><br>ISO 27001:2022 - Information Security Management System (ISMS)</li>
                             <li><span>Certificate</span><br>Artificial Intelligence in Project Management at Alison
                             Essentials of IT Service Management and Infrastructure Library Level 4 at Alison
                             Microsoft Access Masterclass</li>
@@ -156,8 +155,7 @@
                         <a href="https://www.facebook.com/manas.malik.7161?mibextid=ZbWKwL"><i
                                 class="fa-brands fa-facebook"></i></a>
                         <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                        <a
-                            href="https://www.linkedin.com/in/malik-manas-886931302?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i
+                        <a href="https://www.linkedin.com/in/malik-manas-886931302?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i
                                 class="fa-brands fa-linkedin"></i></a>
                     </div>
                     <a href="https://github.com/Malik-MMA/portfolio1/blob/main/complete%20cv.pdf"
@@ -167,7 +165,7 @@
                     <form name="submit-to-google-sheet">
                         <input type="text" name="Name" placeholder="Your Name" required>
                         <input type="email" name="Email" placeholder="Your Email" required>
-                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
                         <button type="submit" class="btn btn2">Submit</button>
                     </form>
                     <span id="msg"></span>
@@ -180,48 +178,14 @@
         var tablinks = document.getElementsByClassName("tab-links");
         var tabcontents = document.getElementsByClassName("tab-contents");
 
-        function opentab(tabname) {
-            for (tablink of tablinks) {
+        function opentab(tabname, event) {
+            for (var tablink of tablinks) {
                 tablink.classList.remove("active-link");
             }
-            for (tabcontent of tabcontents) {
+            for (var tabcontent of tabcontents) {
                 tabcontent.classList.remove("active-tab");
             }
             event.currentTarget.classList.add("active-link");
             document.getElementById(tabname).classList.add("active-tab");
         }
-    </script>
-
-    <script>
-        var sidemenu = document.getElementById("sidemenu");
-
-        function openmenu() {
-            sidemenu.style.right = "0";
-        }
-        function closemenu() {
-            sidemenu.style.right = "-200px";
-        }
-    </script>
-
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxi-rtCiYiVsOfv7Fv5jWgyXWq91AxAJPJCxRAmi3_8cNZso4Kqa3foy1ZHTpD9PfDd/exec'
-        const form = document.forms['submit-to-google-sheet']
-        const msg = document.getElementById("msg")
-
-        form.addEventListener('submit', e => {
-            e.preventDefault()
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                .then(response => {
-                    msg.innerHTML = "Message sent successfully"
-                    setTimeout(function () {
-                        msg.innerHTML = ""
-                    }, 5000)
-                    form.reset()
-                })
-                .catch(error => console.error('Error!', error.message))
-        })
-    </script>
-
-</body>
-
-</html>
+   
